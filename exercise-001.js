@@ -1,6 +1,6 @@
 function maximum(a){                //找最大值
 	var max = a[0];
-	for(var i = 1;i < a.length;i++){
+	for(var i = 0;i < a.length;i++){
 		if(a[i] > max){
 			max = a[i];
 		}
@@ -20,7 +20,7 @@ function maximum1(a) {                       //用reduce遍历数组
  }
 
 function maximum2(a) {     //用reduceRight遍历数组
-	var max=a.reduceRight(function(prev,cur,index,array){
+	var max = a.reduceRight(function(prev,cur,index,array){
 		if(prev > cur){
 			return prev;
 		}else{
@@ -30,12 +30,28 @@ function maximum2(a) {     //用reduceRight遍历数组
 	return max;
  }
 
+ function maximum3(a){
+ 	var max=a.reduceRight(function(prev,cur,index,array){
+ 		return prev > cur ? prev : cur;
+ 	})
+ 	return max;
+ }
+
 function average(b){           
 	var n = b.length,sum = b[0];
 	for(var i = 0;i<b.length;i++){
 		sum += b[i];
 	}
 	var averageNumber = sum/n;
+	return averageNumber;
+ }
+
+function average1(b){
+ 	var n = b.length;
+	var sum=b.reduce(function (prev,cur,index,array) {
+		return prev + cur;
+	}) 
+	var  averageNumber = sum/n;
 	return averageNumber;
  }
 
